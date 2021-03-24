@@ -15,10 +15,10 @@ func main() {
 	lister := operation.NewListerV2()
 	if lister == nil {
 		log.Println("load config file", os.Getenv("QINIU"), "failed")
-	}
-
-	a := lister.ListPrefix("")
-	for _, v := range a {
-		fmt.Println(v)
+	} else {
+		a := lister.ListPrefix("")
+		for _, v := range a {
+			fmt.Println(v)
+		}
 	}
 }

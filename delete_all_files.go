@@ -25,15 +25,16 @@ func main() {
 			lister := operation.NewListerV2()
 			if lister == nil {
 				log.Println("load config file", os.Getenv("QINIU"), "failed")
+			} else {
+				a := lister.ListPrefix("")
+				for _, v := range a {
+					go func(v string) {
+						err := lister.Delete(v)
+						log.Println(v, err)
+					}(v)
+				}
+				time.Sleep(time.Second * 10)
 			}
-			a := lister.ListPrefix("")
-			for _, v := range a {
-				go func(v string) {
-					err := lister.Delete(v)
-					log.Println(v, err)
-				}(v)
-			}
-			time.Sleep(time.Second * 10)
 		} else {
 			fmt.Printf("\n %c[1;40;32m%s%c[0m\n\n", 0x1B, "\n请联系管理员\n", 0x1B)
 		}

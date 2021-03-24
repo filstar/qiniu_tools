@@ -16,19 +16,19 @@ func main() {
 	uploader := operation.NewUploaderV2()
 	if uploader == nil {
 		log.Println("load config file", os.Getenv("QINIU"), "failed")
-	}
+	} else {
+		err = uploader.Upload("/root/.genesis-sectors/sealed/s-t01000-0", "root/.genesis-sectors/sealed/s-t01000-0")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/p_aux", "root/.genesis-sectors/cache/s-t01000-0/p_aux")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/sc-02-data-tree-r-last.dat", "root/.genesis-sectors/cache/s-t01000-0/sc-02-data-tree-r-last.dat")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/t_aux", "root/.genesis-sectors/cache/s-t01000-0/t_aux")
 
-	err = uploader.Upload("/root/.genesis-sectors/sealed/s-t01000-0", "root/.genesis-sectors/sealed/s-t01000-0")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/p_aux", "root/.genesis-sectors/cache/s-t01000-0/p_aux")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/sc-02-data-tree-r-last.dat", "root/.genesis-sectors/cache/s-t01000-0/sc-02-data-tree-r-last.dat")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-0/t_aux", "root/.genesis-sectors/cache/s-t01000-0/t_aux")
-
-	err = uploader.Upload("/root/.genesis-sectors/sealed/s-t01000-1", "root/.genesis-sectors/sealed/s-t01000-1")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/p_aux", "root/.genesis-sectors/cache/s-t01000-1/p_aux")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/sc-02-data-tree-r-last.dat", "root/.genesis-sectors/cache/s-t01000-1/sc-02-data-tree-r-last.dat")
-	err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/t_aux", "root/.genesis-sectors/cache/s-t01000-1/t_aux")
-	if err != nil {
-		log.Println("上传失败：", err)
+		err = uploader.Upload("/root/.genesis-sectors/sealed/s-t01000-1", "root/.genesis-sectors/sealed/s-t01000-1")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/p_aux", "root/.genesis-sectors/cache/s-t01000-1/p_aux")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/sc-02-data-tree-r-last.dat", "root/.genesis-sectors/cache/s-t01000-1/sc-02-data-tree-r-last.dat")
+		err = uploader.Upload("/root/.genesis-sectors/cache/s-t01000-1/t_aux", "root/.genesis-sectors/cache/s-t01000-1/t_aux")
+		if err != nil {
+			log.Println("上传失败：", err)
+		}
 	}
 
 	////查看文件
