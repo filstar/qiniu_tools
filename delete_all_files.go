@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
-	"github.com/qiniupd/qiniu-go-sdk/x/log.v7"
 )
 
 func main() {

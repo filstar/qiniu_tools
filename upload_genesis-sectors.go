@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
-	"github.com/qiniupd/qiniu-go-sdk/x/log.v7"
 )
 
 //使用方法：QINIU="../cfg.toml" go run main.go
