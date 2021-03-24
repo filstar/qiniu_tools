@@ -8,6 +8,7 @@ import (
 )
 
 //使用方法：QINIU="../cfg.toml" go run list_public_cloud_files.go
+
 func main() {
 
 	lister := operation.NewListerV2()
