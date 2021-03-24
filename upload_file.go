@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -17,8 +18,7 @@ func main() {
 
 	fromFile := os.Args[1]
 	toKey := fromFile[1:]
-	log.Println("fromFile: ", fromFile, "  toKey: ", toKey)
-
+	fmt.Println("fromFile: ", fromFile, "  toKey: ", toKey)
 	err := uploader.Upload(fromFile, toKey)
 
 	if err != nil {

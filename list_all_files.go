@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -18,6 +19,6 @@ func main() {
 
 	a := lister.ListPrefix("")
 	for _, v := range a {
-		log.Println(v)
+		fmt.Println(v)
 	}
 }

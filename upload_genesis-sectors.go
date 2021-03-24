@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"log"
 	"os"
 
@@ -32,16 +31,15 @@ func main() {
 		log.Println("上传失败：", err)
 	}
 
-	//查看文件
-	lister := operation.NewListerV2()
-	if lister == nil {
-		panic(errors.New("列表初始化失败"))
-	}
-	filestats := lister.ListStat([]string{"root/a.txt", "root/b.txt"})
-	for _, v := range filestats {
-		log.Println("filestat:", v)
-	}
-
+	////查看文件
+	//lister := operation.NewListerV2()
+	//if lister == nil {
+	//	panic(errors.New("列表初始化失败"))
+	//}
+	//filestats := lister.ListStat([]string{"root/a.txt", "root/b.txt"})
+	//for _, v := range filestats {
+	//	log.Println("filestat:", v)
+	//}
 	//    //下载文件
 	//    downloader := operation.NewDownloaderV2()
 	//    f, err := downloader.DownloadFile("key", "/tmp/path")
