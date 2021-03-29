@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
 	"strings"
-
+	"regexp"
 	"log"
 	"os"
 	"path/filepath"
@@ -15,7 +15,7 @@ func main() {
 	fromFolder := os.Args[1]
 	log.Println("upload from ", fromFolder)
 	upload(fromFolder)
-	log.Println("end")
+	println("end")
 }
 
 func upload(fullPath string) {
@@ -30,20 +30,23 @@ func upload(fullPath string) {
 		return files, err
 	}
 	fileList, err := filePathWalkDir(fullPath)
-
 	for _, v := range fileList {
 		if strings.Contains(v, "fetching") {
 			continue
 		}
-		uploader := operation.NewUploaderV2()
-		if uploader == nil {
-			log.Println("init uploader failed", err)
-			continue
+		a := regexp.MustCompile("cache|sealed")
+		var str = a.FindAllString(v, -1)
+		if len(str) > 0 {
+			uploader := operation.NewUploaderV2()
+			if uploader == nil {
+				log.Println("init uploader failed", err)
+				continue
+			}
+			if err := uploader.Upload(v, v); err != nil {
+				log.Println("upload failed", v, err)
+				continue
+			}
+			//os.Remove(v)
 		}
-		if err := uploader.Upload(v, v); err != nil {
-			log.Println("upload failed", v, err)
-			continue
-		}
-		//os.Remove(v)
 	}
 }
