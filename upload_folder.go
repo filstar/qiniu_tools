@@ -36,15 +36,17 @@ func upload(fullPath string) {
 		if strings.Contains(v, "fetching") {
 			continue
 		}
-		uploader := operation.NewUploaderV2()
-		if uploader == nil {
-			log.Println("init uploader failed", err)
-			continue
+		if strings.Contains(v, "cache|sealed|unsealed") {
+			uploader := operation.NewUploaderV2()
+			if uploader == nil {
+				log.Println("init uploader failed", err)
+				continue
+			}
+			if err := uploader.Upload(v, v); err != nil {
+				log.Println("upload failed", v, err)
+				continue
+			}
+			//os.Remove(v)
 		}
-		if err := uploader.Upload(v, v); err != nil {
-			log.Println("upload failed", v, err)
-			continue
-		}
-		//os.Remove(v)
 	}
 }
