@@ -7,7 +7,7 @@ import (
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
 )
 
-//使用方法：QINIU="../cfg.toml" go run main.go
+//使用方法：QINIU="../cfg.toml" go run upload_genesis-sectors.go
 
 func main() {
 	var err error

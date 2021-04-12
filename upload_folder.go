@@ -1,15 +1,16 @@
 package main
 
 import (
-	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
-	"strings"
-	"regexp"
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
+	"strings"
+
+	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
 )
 
-//使用方法：QINIU="../cfg.toml" go run rename_file.go
+//使用方法：QINIU="../cfg.toml" go run upload_folder.go
 
 func main() {
 	fromFolder := os.Args[1]

@@ -15,7 +15,7 @@ import (
 func main() {
 
 	strPassword := ""
-	// log.Println("please input password:")
+	log.Println("please input password:")
 	_, err1 := fmt.Scanln(&strPassword)
 	if nil == err1 {
 		// log.Println("strPassword:", strPassword)

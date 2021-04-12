@@ -8,7 +8,7 @@ import (
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
 )
 
-//使用方法：QINIU="../cfg.toml" go run rename_file.go
+//使用方法：QINIU="../cfg.toml" go run upload_file.go
 
 func main() {
 	uploader := operation.NewUploaderV2()

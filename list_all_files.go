@@ -8,7 +8,7 @@ import (
 	"github.com/qiniupd/qiniu-go-sdk/syncdata/operation"
 )
 
-//使用方法：QINIU="../cfg.toml" go run list_public_cloud_files.go
+//使用方法：QINIU="../cfg.toml" go run list_all_files.go
 
 func main() {
 
